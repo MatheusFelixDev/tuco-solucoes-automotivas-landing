@@ -1,39 +1,3 @@
-const Servicos = () => (
-  <section id="servicos" className="py-16 bg-black text-white text-center">
-    <h2 className="text-3xl font-bold mb-8">Nossos Serviços</h2>
-    <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      {[
-        "Mecânica Geral",
-        "Suspensão",
-        "Freios",
-        "Soldas",
-        "Balanceamento",
-        "Troca de Óleo",
-      ].map((servico) => (
-        <div key={servico} className="bg-gray-900 p-6 rounded-2xl shadow">
-          <h3 className="text-xl font-semibold mb-2 text-orange-500">
-            {servico}
-          </h3>
-          <p className="text-sm text-gray-300">
-            {servico === "Mecânica Geral" &&
-              "Diagnóstico completo e reparos para todos os sistemas do veículo."}
-            {servico === "Suspensão" &&
-              "Mais estabilidade, conforto e segurança para seu carro."}
-            {servico === "Freios" &&
-              "Inspeção e manutenção para frear com segurança."}
-            {servico === "Soldas" &&
-              "Serviços de soldagem com precisão e acabamento profissional."}
-            {servico === "Balanceamento" &&
-              "Evite vibrações e desgaste irregular dos pneus."}
-            {servico === "Troca de Óleo" &&
-              "Troca rápida e segura com produtos de qualidade."}
-          </p>
-        </div>
-      ))}
-    </div>
-  </section>
-);
-
 const Diferenciais = () => (
   <section id="diferenciais" className="py-16 text-center bg-black text-white">
     <h2 className="text-3xl font-bold mb-8 text-orange-500">
@@ -143,7 +107,6 @@ const Footer = () => (
 export default function LandingPage() {
   return (
     <>
-      <Servicos />
       <Diferenciais />
       <Depoimentos />
 
