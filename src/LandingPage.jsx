@@ -1,20 +1,3 @@
-const Diferenciais = () => (
-  <section id="diferenciais" className="py-16 text-center bg-black text-white">
-    <h2 className="text-3xl font-bold mb-8 text-orange-500">
-      Por que escolher a Tuco Soluções Automotivas?
-    </h2>
-    <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-gray-300">
-      <li>✅ Atendimento rápido e agendamento online.</li>
-      <li>✅ Equipe experiente e especializada.</li>
-      <li>✅ Equipamentos modernos e diagnóstico preciso.</li>
-      <li>✅ Transparência e confiança no orçamento.</li>
-      <li>
-        ✅ Localização fácil: Rua Nova Ponte, 312 – São Caetano, Betim/MG.
-      </li>
-    </ul>
-  </section>
-);
-
 const Depoimentos = () => (
   <section id="depoimentos" className="py-16 bg-black text-white text-center">
     <h2 className="text-3xl font-bold mb-8 text-orange-500">
@@ -107,7 +90,6 @@ const Footer = () => (
 export default function LandingPage() {
   return (
     <>
-      <Diferenciais />
       <Depoimentos />
 
       <Footer />
