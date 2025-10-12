@@ -15,7 +15,7 @@ const Diferenciais = () => {
 
       <div className="relative container mx-auto px-6 text-center text-white">
         <h2 className="text-4xl font-bold mb-12 text-orange-500">
-          Nossos Diferenciais
+          Aqui você encontra
         </h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
