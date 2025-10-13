@@ -91,16 +91,16 @@ const DepoCard = ({ dep }) => (
     <div className="relative h-full overflow-hidden">
       {/* Imagem principal (print) */}
       <img
-        src={dep.foto}
-        alt="Serviço realizado"
+        src={dep.print}
+        alt="Conversa WhatsApp"
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
       />
 
       {/* Foto inferior (hover + active em mobile) */}
       <div className="absolute bottom-0 left-0 w-full h-1/5 overflow-hidden transition-all duration-700 border-t-2 border-orange-500/70 shadow-[0_-10px_25px_rgba(0,0,0,0.6)] group-hover:h-1/2 group-active:h-1/2">
         <img
-          src={dep.print}
-          alt="Conversa WhatsApp"
+          src={dep.foto}
+          alt="Serviço realizado"
           className="w-full h-full object-cover object-center brightness-105 contrast-110"
         />
 
