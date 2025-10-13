@@ -1,31 +1,3 @@
-const Depoimentos = () => (
-  <section id="depoimentos" className="py-16 bg-black text-white text-center">
-    <h2 className="text-3xl font-bold mb-8 text-orange-500">
-      O que dizem nossos clientes
-    </h2>
-    <div className="max-w-4xl mx-auto grid md:grid-cols-3 gap-6">
-      <div className="bg-gray-900 p-6 rounded-2xl shadow">
-        <p className="italic mb-4 text-gray-300">
-          “Atendimento excelente e serviço rápido. Meu carro ficou perfeito!”
-        </p>
-        <h4 className="font-semibold text-orange-500">– João S.</h4>
-      </div>
-      <div className="bg-gray-900 p-6 rounded-2xl shadow">
-        <p className="italic mb-4 text-gray-300">
-          “Equipe honesta e prestativa. Melhor oficina de Betim!”
-        </p>
-        <h4 className="font-semibold text-orange-500">– Maria L.</h4>
-      </div>
-      <div className="bg-gray-900 p-6 rounded-2xl shadow">
-        <p className="italic mb-4 text-gray-300">
-          “Resolvem o problema sem enrolação e com preço justo.”
-        </p>
-        <h4 className="font-semibold text-orange-500">– Carlos M.</h4>
-      </div>
-    </div>
-  </section>
-);
-
 const Formulario = () => (
   <section id="formulario" className="py-16 bg-black text-white text-center">
     <h2 className="text-3xl font-bold mb-6 text-orange-500">
@@ -90,8 +62,6 @@ const Footer = () => (
 export default function LandingPage() {
   return (
     <>
-      <Depoimentos />
-
       <Footer />
     </>
   );
