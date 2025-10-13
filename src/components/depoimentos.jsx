@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { FaWhatsapp } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -13,19 +14,19 @@ const depoimentos = [
     id: 1,
     foto: foto1,
     print: print1,
-    texto: "“Excelente atendimento, serviço impecável 👊👏”",
+    texto: "“descrição do serviço”",
   },
   {
     id: 2,
     foto: foto2,
     print: print1,
-    texto: "“Resolvem rápido e com qualidade, recomendo demais 👏🔥”",
+    texto: "“descrição do serviço”",
   },
   {
     id: 3,
     foto: foto3,
     print: print1,
-    texto: "“Ficou novo de novo! Atendimento top 💪🚗”",
+    texto: "“descrição do serviço”",
   },
 ];
 
@@ -83,36 +84,52 @@ const Depoimentos = () => {
   );
 };
 
-const DepoCard = ({ dep }) => (
-  <div
-    className="relative bg-gray-900/70 backdrop-blur-md border border-orange-500/30 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:scale-[1.02] group active:scale-[1.02]"
-    style={{ height: "450px" }}
-  >
-    <div className="relative h-full overflow-hidden">
-      {/* Imagem principal (print) */}
-      <img
-        src={dep.print}
-        alt="Conversa WhatsApp"
-        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
-      />
+const DepoCard = ({ dep }) => {
+  const [isTouched, setIsTouched] = useState(false);
 
-      {/* Foto inferior (hover + active em mobile) */}
-      <div className="absolute bottom-0 left-0 w-full h-1/5 overflow-hidden transition-all duration-700 border-t-2 border-orange-500/70 shadow-[0_-10px_25px_rgba(0,0,0,0.6)] group-hover:h-1/2 group-active:h-1/2">
+  // Alterna o efeito ao tocar no card (para mobile)
+  const handleTouch = () => {
+    setIsTouched(!isTouched);
+  };
+
+  return (
+    <div
+      className={`relative bg-gray-900/70 backdrop-blur-md border border-orange-500/30 rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 group ${
+        isTouched ? "scale-[1.02]" : "hover:scale-[1.02]"
+      }`}
+      style={{ height: "450px" }}
+      onTouchStart={handleTouch}
+    >
+      <div className="relative h-full overflow-hidden">
+        {/* Imagem principal (print/serviço) */}
         <img
           src={dep.foto}
-          alt="Serviço realizado"
-          className="w-full h-full object-cover object-center brightness-105 contrast-110"
+          alt="Conversa WhatsApp"
+          className="w-full h-full object-cover transition-transform duration-700 pointer-events-none"
         />
 
-        {/* Gradiente e texto no topo da foto */}
-        <div className="absolute top-0 left-0 w-full py-3 px-5 bg-gradient-to-b from-black/80 to-transparent text-left">
-          <p className="italic text-gray-200 text-sm bg-black/40 backdrop-blur-sm rounded-lg inline-block px-3 py-1">
-            {dep.texto}
-          </p>
+        {/* Foto inferior (sobe no hover ou toque) */}
+        <div
+          className={`absolute bottom-0 left-0 w-full overflow-hidden border-t-2 border-orange-500/70 shadow-[0_-10px_25px_rgba(0,0,0,0.6)] transition-all duration-700 ${
+            isTouched ? "h-1/3" : "h-1/6 group-hover:h-1/3"
+          }`}
+        >
+          <img
+            src={dep.print}
+            alt="Serviço realizado"
+            className="w-full h-full object-cover object-center brightness-105 contrast-110 pointer-events-none"
+          />
+
+          {/* Gradiente e texto */}
+          <div className="absolute top-0 left-0 w-full py-3 px-5 bg-gradient-to-b from-black/90 to-transparent text-left transition-all duration-500">
+            <p className="italic text-gray-200 text-sm mb-1 bg-black/30 backdrop-blur-sm rounded-lg inline-block px-3 py-1">
+              {dep.texto}
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Depoimentos;
