@@ -50,7 +50,7 @@ const Header = () => {
             { id: "servicos", label: "Serviços" },
             { id: "diferenciais", label: "Diferenciais" },
             { id: "depoimentos", label: "Depoimentos" },
-            { id: "formulario", label: "Contato" },
+            { id: "localizacao", label: "Localização" },
           ].map(({ id, label }) => (
             <a
               key={id}

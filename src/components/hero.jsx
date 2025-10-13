@@ -33,11 +33,14 @@ const Hero = () => {
           >
             <FaWhatsapp size={22} /> Fale pelo WhatsApp
           </a>
+
           <a
-            href="#formulario"
-            className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-black px-6 py-3 rounded-lg font-semibold text-lg shadow-lg transition-all"
+            href="https://www.google.com/maps/dir/?api=1&destination=Tuco+Solu%C3%A7%C3%B5es+Automotivas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-black px-6 py-3 rounded-lg font-semibold transition-all"
           >
-            Agendar serviço
+            Venha ate nós
           </a>
         </div>
 

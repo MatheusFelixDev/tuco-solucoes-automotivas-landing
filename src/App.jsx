@@ -4,6 +4,7 @@ import Hero from "./components/hero";
 import Servicos from "./components/servicos";
 import Diferenciais from "./components/diferenciais";
 import Depoimentos from "./components/depoimentos";
+import Localizacao from "./components/localizacao";
 import "./index.css";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Servicos />
       <Diferenciais />
       <Depoimentos />
+      <Localizacao />
       <LandingPage />
     </div>
   );
