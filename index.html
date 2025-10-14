@@ -125,34 +125,48 @@
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
 
-    <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 -->
+    <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 - VERSÃO REACT -->
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Função para enviar evento pro GA4
-        function sendGAEvent(eventName, link) {
-          gtag("event", eventName, {
-            event_category: "Engajamento",
-            event_label: link,
-            value: 1,
-          });
-          console.log("Evento enviado:", eventName, link);
-        }
+      // Função para enviar evento pro GA4
+      function sendGAEvent(eventName, link) {
+        gtag("event", eventName, {
+          event_category: "Engajamento",
+          event_label: link,
+          value: 1,
+        });
+        console.log("Evento enviado:", eventName, link);
+      }
 
-        // ---- Clique no WhatsApp ----
+      // Função que adiciona listeners aos links encontrados
+      function attachClickListeners() {
         document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
-          el.addEventListener("click", function () {
-            sendGAEvent("click_whatsapp", this.href);
-          });
+          if (!el.dataset.gaTracked) {
+            el.addEventListener("click", function () {
+              sendGAEvent("click_whatsapp", this.href);
+            });
+            el.dataset.gaTracked = "true";
+          }
         });
 
-        // ---- Clique no Mapa / Localização ----
         document
           .querySelectorAll('a[href*="google.com/maps"]')
           .forEach(function (el) {
-            el.addEventListener("click", function () {
-              sendGAEvent("click_maps", this.href);
-            });
+            if (!el.dataset.gaTracked) {
+              el.addEventListener("click", function () {
+                sendGAEvent("click_maps", this.href);
+              });
+              el.dataset.gaTracked = "true";
+            }
           });
+      }
+
+      // Observador para detectar quando o React renderizar novos elementos
+      const observer = new MutationObserver(() => attachClickListeners());
+
+      // Inicia o observador quando o DOM estiver pronto
+      document.addEventListener("DOMContentLoaded", function () {
+        attachClickListeners(); // executa uma vez ao carregar
+        observer.observe(document.body, { childList: true, subtree: true }); // observa mudanças no DOM
       });
     </script>
   </body>
