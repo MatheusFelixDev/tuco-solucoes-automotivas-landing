@@ -124,5 +124,36 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Função para enviar evento pro GA4
+        function sendGAEvent(eventName, link) {
+          gtag("event", eventName, {
+            event_category: "Engajamento",
+            event_label: link,
+            value: 1,
+          });
+          console.log("Evento enviado:", eventName, link);
+        }
+
+        // ---- Clique no WhatsApp ----
+        document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
+          el.addEventListener("click", function () {
+            sendGAEvent("click_whatsapp", this.href);
+          });
+        });
+
+        // ---- Clique no Mapa / Localização ----
+        document
+          .querySelectorAll('a[href*="google.com/maps"]')
+          .forEach(function (el) {
+            el.addEventListener("click", function () {
+              sendGAEvent("click_maps", this.href);
+            });
+          });
+      });
+    </script>
   </body>
 </html>
