@@ -5,6 +5,7 @@ import Servicos from "./components/servicos";
 import Diferenciais from "./components/diferenciais";
 import Depoimentos from "./components/depoimentos";
 import Localizacao from "./components/localizacao";
+import Footer from "./components/footer";
 import "./index.css";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
       <Diferenciais />
       <Depoimentos />
       <Localizacao />
-      <LandingPage />
+      <Footer />
     </div>
   );
 }
