@@ -68,7 +68,6 @@
     />
 
     <!-- Google Analytics 4 -->
-    <!-- Google tag (gtag.js) -->
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-XRMVTFQS4J"
@@ -79,7 +78,6 @@
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
-
       gtag("config", "G-XRMVTFQS4J");
     </script>
 
@@ -124,7 +122,6 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-
     <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 -->
     <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 - VERSÃO REACT -->
     <script>
@@ -169,6 +166,33 @@
         attachClickListeners(); // executa uma vez ao carregar
         observer.observe(document.body, { childList: true, subtree: true }); // observa mudanças no DOM
       });
+
+      // <!-- Evento de Scroll 80% -->
+      window.addEventListener("scroll", function () {
+        const scrollPosition = window.scrollY + window.innerHeight;
+        const pageHeight = document.documentElement.scrollHeight;
+        const scrollPercent = (scrollPosition / pageHeight) * 100;
+        if (scrollPercent >= 80 && !window.scrollTracked) {
+          gtag("event", "scroll_80", {
+            event_category: "Engajamento",
+            event_label: "Rolou 80% da página",
+            value: 1,
+          });
+
+          console.log("Evento enviado: scroll_80");
+          window.scrollTracked = true;
+        }
+      });
+      // <!--  Evento de Tempo (30s) -->
+
+      setTimeout(function () {
+        gtag("event", "tempo_30s", {
+          event_category: "Engajamento",
+          event_label: "Usuário ativo por 30s",
+          value: 1,
+        });
+        console.log("Evento enviado: tempo_30s");
+      }, 30000);
     </script>
   </body>
 </html>
