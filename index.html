@@ -127,77 +127,76 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 -->
-    <!-- RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 - VERSÃO REACT -->
+    <!-- === RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 (OTIMIZADO) === -->
     <script>
-      // Função para enviar evento pro GA4
-      function sendGAEvent(eventName, link) {
+      // Função genérica de envio de eventos pro Google Analytics 4
+      function sendGAEvent(eventName, link, value = 0) {
         gtag("event", eventName, {
           event_category: "Engajamento",
-          event_label: link,
-          value: 1,
+          event_label: link || "interação",
+          value: value,
+          currency: "BRL",
         });
-        console.log("Evento enviado:", eventName, link);
+        console.log(
+          "Evento GA4 enviado:",
+          eventName,
+          link || "-",
+          "Valor:",
+          value
+        );
       }
 
-      // Função que adiciona listeners aos links encontrados
+      // Função que adiciona listeners aos links detectados
       function attachClickListeners() {
+        // WhatsApp
         document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
           if (!el.dataset.gaTracked) {
             el.addEventListener("click", function () {
-              sendGAEvent("click_whatsapp", this.href);
+              sendGAEvent("click_whatsapp", this.href, 50); // 💬 Lead mais quente
             });
             el.dataset.gaTracked = "true";
           }
         });
 
+        // Google Maps
         document
           .querySelectorAll('a[href*="google.com/maps"]')
           .forEach(function (el) {
             if (!el.dataset.gaTracked) {
               el.addEventListener("click", function () {
-                sendGAEvent("click_maps", this.href);
+                sendGAEvent("click_maps", this.href, 20); // 📍 Interesse local
               });
               el.dataset.gaTracked = "true";
             }
           });
       }
 
-      // Observador para detectar quando o React renderizar novos elementos
+      // Detecta novas renderizações (React)
       const observer = new MutationObserver(() => attachClickListeners());
 
-      // Inicia o observador quando o DOM estiver pronto
+      // Quando o DOM carregar
       document.addEventListener("DOMContentLoaded", function () {
-        attachClickListeners(); // executa uma vez ao carregar
-        observer.observe(document.body, { childList: true, subtree: true }); // observa mudanças no DOM
+        attachClickListeners();
+        observer.observe(document.body, { childList: true, subtree: true });
       });
 
-      // <!-- Evento de Scroll 80% -->
+      // Evento de scroll até 80% da página
       window.addEventListener("scroll", function () {
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
         const scrollPercent = (scrollPosition / pageHeight) * 100;
-        if (scrollPercent >= 80 && !window.scrollTracked) {
-          gtag("event", "scroll_80", {
-            event_category: "Engajamento",
-            event_label: "Rolou 80% da página",
-            value: 1,
-          });
 
-          console.log("Evento enviado: scroll_80");
+        if (scrollPercent >= 80 && !window.scrollTracked) {
+          sendGAEvent("scroll_80", "Rolou 80% da página", 10);
           window.scrollTracked = true;
         }
       });
-      // <!--  Evento de Tempo (30s) -->
 
+      // Evento de tempo ativo (30 segundos)
       setTimeout(function () {
-        gtag("event", "tempo_30s", {
-          event_category: "Engajamento",
-          event_label: "Usuário ativo por 30s",
-          value: 1,
-        });
-        console.log("Evento enviado: tempo_30s");
+        sendGAEvent("tempo_30s", "Usuário ativo por 30s", 5);
       }, 30000);
     </script>
+    <!-- === FIM DO RASTREAMENTO GA4 === -->
   </body>
 </html>
