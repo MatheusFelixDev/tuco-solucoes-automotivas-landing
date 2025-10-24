@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=GTM-M7X2ML3F" + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-M7X2ML3F");
+    </script>
+    <!-- End Google Tag Manager -->
+
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -8,27 +23,14 @@
     />
     <title>Tuco Soluções Automotivas | Oficina Mecânica em Betim - MG</title>
 
-    <!-- Descrição e palavras-chave para SEO -->
+    <!-- SEO e Redes Sociais -->
     <meta
       name="description"
-      content="Tuco Soluções Automotivas - Oficina mecânica em Betim/MG. Especialistas em mecânica geral, suspensão, freios, soldas, troca de óleo e balanceamento. Atendimento rápido, confiável e com preço justo!"
+      content="Tuco Soluções Automotivas - Oficina mecânica em Betim/MG. Especialistas em mecânica geral, suspensão, freios, soldas, troca de óleo e balanceamento. Atendimento rápido e confiável!"
     />
-    <meta
-      name="keywords"
-      content="oficina mecânica Betim, mecânica geral, troca de óleo Betim, freios, suspensão, balanceamento, solda automotiva, Tuco Soluções Automotivas, oficina em Betim"
-    />
-    <meta name="author" content="Tuco Soluções Automotivas" />
-
-    <!-- Open Graph / Meta Tags para redes sociais -->
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:type" content="website" />
     <meta
       property="og:title"
       content="Tuco Soluções Automotivas | Oficina Mecânica em Betim - MG"
-    />
-    <meta
-      property="og:description"
-      content="Manutenção completa para seu carro em Betim/MG. Mecânica geral, freios, suspensão, soldas e muito mais. Qualidade, agilidade e confiança!"
     />
     <meta
       property="og:image"
@@ -39,167 +41,34 @@
       content="https://tuco-solucoes-automotivas-landing.vercel.app/"
     />
     <meta property="og:site_name" content="Tuco Soluções Automotivas" />
-
-    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Tuco Soluções Automotivas | Oficina Mecânica em Betim"
-    />
-    <meta
-      name="twitter:description"
-      content="Oficina mecânica de confiança em Betim/MG. Especialistas em manutenção, suspensão e troca de óleo."
-    />
-    <meta
-      name="twitter:image"
-      content="https://tuco-solucoes-automotivas-landing.vercel.app/og-image.jpg"
-    />
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo.png" />
     <link rel="apple-touch-icon" href="/logo.png" />
-
-    <!-- Tema do navegador -->
     <meta name="theme-color" content="#000000" />
 
-    <!-- Pré-carregamento de fontes (performance) -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Google Analytics 4 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-XRMVTFQS4J"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-XRMVTFQS4J");
-    </script>
-
-    <!-- Pixel Meta (Facebook/Instagram Ads) -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
-      fbq("init", "666074182958211");
-      fbq("track", "PageView");
-    </script>
-    <noscript>
-      <img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=666074182958211&ev=PageView&noscript=1"
-      />
-    </noscript>
-
-    <meta
-      name="google-site-verification"
-      content="IPvwoAnjWWCzi_NhDjbwMN2SPctZo5kZNO27eTYZJ4I"
-    />
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-M7X2ML3F"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <!-- === RASTREAMENTO DE EVENTOS PERSONALIZADOS GA4 (OTIMIZADO) === -->
-    <script>
-      // Função genérica de envio de eventos pro Google Analytics 4
-      function sendGAEvent(eventName, link, value = 0) {
-        gtag("event", eventName, {
-          event_category: "Engajamento",
-          event_label: link || "interação",
-          value: value,
-          currency: "BRL",
-        });
-        console.log(
-          "Evento GA4 enviado:",
-          eventName,
-          link || "-",
-          "Valor:",
-          value
-        );
-      }
-
-      // Função que adiciona listeners aos links detectados
-      function attachClickListeners() {
-        // WhatsApp
-        document.querySelectorAll('a[href*="wa.me"]').forEach(function (el) {
-          if (!el.dataset.gaTracked) {
-            el.addEventListener("click", function () {
-              sendGAEvent("click_whatsapp", this.href, 50); // 💬 Lead mais quente
-            });
-            el.dataset.gaTracked = "true";
-          }
-        });
-
-        // Google Maps
-        document
-          .querySelectorAll('a[href*="google.com/maps"]')
-          .forEach(function (el) {
-            if (!el.dataset.gaTracked) {
-              el.addEventListener("click", function () {
-                sendGAEvent("click_maps", this.href, 20); // 📍 Interesse local
-              });
-              el.dataset.gaTracked = "true";
-            }
-          });
-      }
-
-      // Detecta novas renderizações (React)
-      const observer = new MutationObserver(() => attachClickListeners());
-
-      // Quando o DOM carregar
-      document.addEventListener("DOMContentLoaded", function () {
-        attachClickListeners();
-        observer.observe(document.body, { childList: true, subtree: true });
-      });
-
-      // Evento de scroll até 80% da página
-      window.addEventListener("scroll", function () {
-        const scrollPosition = window.scrollY + window.innerHeight;
-        const pageHeight = document.documentElement.scrollHeight;
-        const scrollPercent = (scrollPosition / pageHeight) * 100;
-
-        if (scrollPercent >= 80 && !window.scrollTracked) {
-          sendGAEvent("scroll_80", "Rolou 80% da página", 10);
-          window.scrollTracked = true;
-        }
-      });
-
-      // Evento de tempo ativo (30 segundos)
-      setTimeout(function () {
-        sendGAEvent("tempo_30s", "Usuário ativo por 30s", 5);
-      }, 30000);
-    </script>
-    <!-- === FIM DO RASTREAMENTO GA4 === -->
   </body>
 </html>
