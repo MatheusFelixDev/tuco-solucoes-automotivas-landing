@@ -70,5 +70,68 @@
 
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+  // === CONFIGURAÇÃO DO DATA LAYER ===
+  window.dataLayer = window.dataLayer || [];
+
+  // Função genérica para disparar eventos personalizados
+  function sendEventToDataLayer(eventName, label, value = 0) {
+    dataLayer.push({
+      event: eventName,
+      category: "Engajamento",
+      label: label || "interação",
+      value: value,
+    });
+    console.log("Evento enviado para o dataLayer:", eventName, label, value);
+  }
+
+  // === MONITORAMENTO DE CLIQUES (WhatsApp e Google Maps) ===
+  function attachClickListeners() {
+    // WhatsApp
+    document.querySelectorAll('a[href*="wa.me"]').forEach((el) => {
+      if (!el.dataset.tracked) {
+        el.addEventListener("click", function () {
+          sendEventToDataLayer("whatsapp_click", this.href, 50);
+        });
+        el.dataset.tracked = "true";
+      }
+    });
+
+    // Google Maps
+    document.querySelectorAll('a[href*="google.com/maps"]').forEach((el) => {
+      if (!el.dataset.tracked) {
+        el.addEventListener("click", function () {
+          sendEventToDataLayer("maps_click", this.href, 20);
+        });
+        el.dataset.tracked = "true";
+      }
+    });
+  }
+
+  // === EVENTO DE SCROLL 80% ===
+  window.addEventListener("scroll", function () {
+    const scrollPos = window.scrollY + window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    const scrollPercent = (scrollPos / docHeight) * 100;
+
+    if (scrollPercent >= 80 && !window.scrollTracked) {
+      sendEventToDataLayer("scroll_80", "Rolou 80% da página", 10);
+      window.scrollTracked = true;
+    }
+  });
+
+  // === EVENTO DE TEMPO ATIVO (30s) ===
+  setTimeout(function () {
+    sendEventToDataLayer("tempo_30s", "Usuário ativo por 30 segundos", 5);
+  }, 30000);
+
+  // === INICIALIZAÇÃO ===
+  document.addEventListener("DOMContentLoaded", attachClickListeners);
+
+  const observer = new MutationObserver(() => attachClickListeners());
+  observer.observe(document.body, { childList: true, subtree: true });
+</script>
+
   </body>
 </html>
